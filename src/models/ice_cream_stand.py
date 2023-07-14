@@ -14,30 +14,36 @@ class IceCreamStand(Restaurant):
 
     def flavors_available(self):
         """Percorra a lista de sabores disponíveis e imprima."""
+        # Fatoração - os prints serão substituidos por mensagens que serão retornadas ao fim das condições
         if self.flavors:
-            print("\nNo momento temos os seguintes sabores de sorvete disponíveis:")
             for flavor in self.flavors:
                 print(f"\t-{flavor}")
+            msg = f"\n No momento temos os seguintes sabores de sorvete disponíveis: {self.flavors}"
         else:
-            print("Estamos sem estoque atualmente!")
+            msg = "Estamos sem estoque atualmente!"
+        return msg
 
     def find_flavor(self, flavor):
         """Verifica se o sabor informado está disponível."""
+        # Fatoração - os prints serão substituidos por mensagens que serão retornadas ao fim das condições
         if self.flavors:
             if flavor in self.flavors:
-                print(f"Temos no momento {self.flavors}!")
+                msg = f"Temos no momento {flavor}!"
             else:
-                print(f"Não temos no momento {self.flavors}!")
+                msg = f"Não temos no momento {flavor}!"
         else:
-            print("Estamos sem estoque atualmente!")
+            msg = "Estamos sem estoque atualmente!"
+        return msg
 
     def add_flavor(self, flavor):
         """Add o sabor informado ao estoque."""
+        # Fatoração - os prints serão substituidos por mensagens que serão retornadas ao fim das condições
         if self.flavors:
             if flavor in self.flavors:
-                print("\nSabor já disponivel!")
+                msg = "\nSabor já disponivel!"
             else:
                 self.flavors.append(flavor)
-                print(f"{flavor} adicionado ao estoque!")
+                msg = f"{flavor} adicionado ao estoque!"
         else:
-            print("Estamos sem estoque atualmente!")
+            msg = "Estamos sem estoque atualmente!"
+        return msg
